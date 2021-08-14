@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ImageUpload</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= render 'layouts/import_css' %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="row" style="min-height: 2000px">
+      <div class="col-sm-4 body-side_bar">
+        <%= render 'layouts/side_bar' %>
+      </div>
+        
+      <div class="col-sm-8 body-content" style="color: #fff">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
+<%= render 'layouts/import_js' %>
+
+<style>
+.body-content {
+  background-color: #202121
+}
+.body-side_bar {
+  background-color: #28292A
+}
+</style>
