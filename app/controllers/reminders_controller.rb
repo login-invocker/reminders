@@ -64,6 +64,6 @@ class RemindersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reminder_params
-      params.fetch(:reminder, {})
+      params.fetch(:reminder, {}).permit(:image, :title, :description)
     end
 end
