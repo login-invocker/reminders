@@ -56,6 +56,11 @@ class RemindersController < ApplicationController
     end
   end
 
+  def attach
+    attachments = Attachment.create! image: params[:image]
+    return render :json => {filename: url_for(attachments.image)}
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reminder
