@@ -4,7 +4,10 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    @users = User.all.map { |user|
+      user.avatar_url = helpers.format_avatar_url(user)
+      user
+    }
   end
 
   # GET /users/1 or /users/1.json
@@ -65,6 +68,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:full_name, :password, :string)
+      params.require(:user).permit(:full_name, :password, :string, :avatar_url)
     end
 end

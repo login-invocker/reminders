@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customers
   resources :users
   root to: 'reminders#index'
   resources :reminders
